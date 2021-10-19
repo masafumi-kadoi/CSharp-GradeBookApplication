@@ -74,7 +74,7 @@ namespace GradeBook.GradeBooks
             }
         }
 
-        public string Type
+        public GradeBookType Type
         {
             get; set;
         }
