@@ -74,6 +74,11 @@ namespace GradeBook.GradeBooks
             }
         }
 
+        public GradeBookType Type
+        {
+            get; set;
+        }
+
         public static BaseGradeBook Load(string name)
         {
             if (!File.Exists(name + ".gdbk"))
