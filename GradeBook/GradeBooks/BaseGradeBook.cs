@@ -20,6 +20,11 @@ namespace GradeBook.GradeBooks
             Students = new List<Student>();
         }
 
+        public GradeBookType Type
+        {
+            get; set;
+        }
+
         public void AddStudent(Student student)
         {
             if (string.IsNullOrEmpty(student.Name))
@@ -72,11 +77,6 @@ namespace GradeBook.GradeBooks
             {
                 Console.WriteLine("{0} : {1} : {2}", student.Name, student.Type, student.Enrollment);
             }
-        }
-
-        public GradeBookType Type
-        {
-            get; set;
         }
 
         public static BaseGradeBook Load(string name)
