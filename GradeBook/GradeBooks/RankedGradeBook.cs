@@ -14,7 +14,7 @@ namespace GradeBook.GradeBooks
         public override char GetLetterGrade(double averageGrade)
         {
             if (Students.Count <= 5)
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Ranked-grading requires a minimum of 5 students to work");
             int thr = (int)Math.Floor(Students.Count * 0.2);
             var grades = Students.OrderByDescending(a => a.AverageGrade).Select(a => a.AverageGrade).ToList();
 
