@@ -98,7 +98,7 @@ namespace GradeBook.GradeBooks
                 }
             }
         }
-
+           
         public void Save()
         {
             using (var file = new FileStream(Name + ".gdbk", FileMode.Create, FileAccess.Write))
@@ -113,20 +113,30 @@ namespace GradeBook.GradeBooks
 
         public virtual double GetGPA(char letterGrade, StudentType studentType)
         {
+            int gpa = 0;
+            string[] weightedStudent = new string[2] { "Honors", "DualEnrolled" };
             switch (letterGrade)
             {
                 case 'A':
-                    return 4;
+                    gpa = 4;
+                    break;
                 case 'B':
-                    return 3;
+                    gpa = 3;
+                    break;
                 case 'C':
-                    return 2;
+                    gpa = 2;
+                    break;
                 case 'D':
-                    return 1;
+                    gpa = 1;
+                    break;
                 case 'F':
-                    return 0;
+                    gpa = 0;
+                    break;
             }
-            return 0;
+
+            if (IsWeighted && weightedStudent.Any(item => (0 == item.CompareTo(studentType))))
+                gpa++;
+            return gpa;
         }
 
         public virtual void CalculateStatistics()
