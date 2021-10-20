@@ -114,7 +114,7 @@ namespace GradeBook.GradeBooks
         public virtual double GetGPA(char letterGrade, StudentType studentType)
         {
             int gpa = 0;
-            string[] weightedStudent = new string[2] { "Honors", "DualEnrolled" };
+            StudentType[] weightedStudent = new StudentType[2] { StudentType.Honors, StudentType.DualEnrolled };
             switch (letterGrade)
             {
                 case 'A':
